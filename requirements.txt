@@ -1,0 +1,7 @@
+# AI assistance: ChatGPT added the Blob Storage and user-agent dependencies.
+flask==3.0.3
+flask-cors==4.0.1
+azure-eventhub==5.11.7
+gunicorn==22.0.0
+azure-storage-blob==12.24.1
+user-agents==2.2.0
