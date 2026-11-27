@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ShopStream — a little more good in your everyday. An interactive shopping and event-streaming demo."
+    />
+    <title>ShopStream · Everyday, upgraded</title>
+    <link rel="stylesheet" href="/static/store.css" />
+    <script src="/static/store.js" defer></script>
+  </head>
+  <body>
+    <div class="announcement">
+      A little more good in your everyday.
+      <span>Discover the collection ↓</span>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="/" data-home aria-label="ShopStream home"
+        ><span class="brand-mark" aria-hidden="true">s<span>·</span></span
+        >ShopStream<span class="brand-period">.</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="/#collection" data-shop>Shop the collection</a
+        ><a href="/dashboard" class="analytics-link">Live dashboard ↗</a>
+      </nav>
+      <button
+        class="cart-toggle"
+        id="open-cart"
+        type="button"
+        aria-label="Open cart, 0 items"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 7h12l2 14H4L6 7ZM9 8V6a3 3 0 0 1 6 0v2" />
+        </svg>
+        Cart <span id="cart-count">0</span>
+      </button>
+    </header>
+    <main id="main">
+      <section id="store-view">
+        <div class="hero wrap" id="hero-banner">
+          <div class="hero-copy">
+            <p class="eyebrow"><span></span> THE EVERYDAY EDIT</p>
+            <h1>Good things.<br />Great <em>everydays.</em></h1>
+            <p class="hero-description">
+              For the way you work, the places you go,<br />
+              and the moments in between.
+            </p>
+            <button type="button" class="button primary" id="explore">
+              Find your next favourite <span aria-hidden="true">↗</span>
+            </button>
+            <div class="hero-caption">
+              <span class="tiny-stars" aria-hidden="true">✦ ✦ ✦</span>
+              Thoughtfully picked. Simply priced.
+            </div>
+          </div>
+          <div
+            class="hero-art"
+            aria-label="A collection of everyday essentials"
+            role="img"
+          >
+            <div class="art-orbit"></div>
+            <div class="hero-art-label">THE GOOD STUFF</div>
+            <svg
+              class="hero-headphones"
+              viewBox="0 0 240 200"
+              aria-hidden="true"
+            >
+              <use href="/static/products.svg#headphones" /></svg
+            ><svg class="hero-shoe" viewBox="0 0 240 200" aria-hidden="true">
+              <use href="/static/products.svg#shoes" />
+            </svg>
+            <div class="hero-sticker">
+              Less ordinary.<br /><strong>More you.</strong
+              ><span aria-hidden="true">✳</span>
+            </div>
+          </div>
+        </div>
+        <div class="benefits wrap">
+          <span><i aria-hidden="true">✦</i> Everyday essentials</span
+          ><span><i aria-hidden="true">◇</i> A considered collection</span
+          ><span
+            ><i aria-hidden="true">↗</i> Small upgrades. Big difference.</span
+          >
+        </div>
+        <section
+          class="collection wrap"
+          id="collection"
+          aria-labelledby="collection-title"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">CURATED FOR YOUR EVERYDAY</p>
+              <h2 id="collection-title">Meet your new favourites.</h2>
+            </div>
+            <p>Six good finds. Endless possibilities.</p>
+          </div>
+          <div class="product-grid" id="product-grid">
+            <p role="status">Getting the collection ready…</p>
+          </div>
+        </section>
+        <section class="story wrap">
+          <span class="story-symbol" aria-hidden="true">✳</span>
+          <div>
+            <p class="eyebrow">
+              A LITTLE LESS SCROLLING. A LITTLE MORE LIVING.
+            </p>
+            <h2>The good stuff, all in one place.</h2>
+            <p>
+              Useful things. Easy choices. Find something that fits your day.
+            </p>
+          </div>
+          <a href="#collection" class="text-link">Explore the collection ↗</a>
+        </section>
+      </section>
+      <section
+        id="checkout-view"
+        class="checkout wrap"
+        hidden
+        aria-labelledby="checkout-title"
+      >
+        <button type="button" class="text-link back-link" data-return>
+          ← Continue shopping
+        </button>
+        <p class="eyebrow">ONE LAST LOOK</p>
+        <h1 id="checkout-title" tabindex="-1">Your everyday upgrades.</h1>
+        <p class="muted">Review your items, then place your demo order.</p>
+        <div class="checkout-layout">
+          <section class="checkout-items panel" aria-label="Order items">
+            <div class="panel-heading">
+              <h2>Order review</h2>
+              <button type="button" class="text-link" id="edit-cart">
+                Edit cart
+              </button>
+            </div>
+            <div id="checkout-items"></div>
+          </section>
+          <aside class="order-summary panel">
+            <p class="eyebrow">ORDER SUMMARY</p>
+            <div class="summary-line">
+              <span>Subtotal</span><strong id="checkout-subtotal"></strong>
+            </div>
+            <div class="summary-line total">
+              <span>Total <small>CAD</small></span
+              ><strong id="checkout-total"></strong>
+            </div>
+            <p class="demo-note">
+              This is a simulated purchase. No payment or personal details are
+              needed. Totals include merchandise only.
+            </p>
+            <button class="button primary full" id="place-order" type="button">
+              Place demo order <span aria-hidden="true">→</span>
+            </button>
+            <p
+              id="purchase-status"
+              class="purchase-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </aside>
+        </div>
+      </section>
+      <section
+        id="confirmation-view"
+        class="confirmation wrap"
+        hidden
+        aria-labelledby="confirmation-title"
+      >
+        <div class="confirmation-mark" aria-hidden="true">✓</div>
+        <p class="eyebrow">LOOKING GOOD</p>
+        <h1 id="confirmation-title" tabindex="-1">
+          A little good is on its way.
+        </h1>
+        <p>Your demo order is confirmed. Thanks for shopping with us.</p>
+        <div class="confirmation-receipt panel">
+          <div class="receipt-heading">
+            <span>Order <strong id="order-number"></strong></span
+            ><span class="order-badge">CONFIRMED</span>
+          </div>
+          <div id="confirmation-items"></div>
+          <div class="summary-line total">
+            <span>Total <small>CAD</small></span
+            ><strong id="confirmation-total"></strong>
+          </div>
+        </div>
+        <button type="button" class="button primary" data-return>
+          Keep exploring <span aria-hidden="true">↗</span></button
+        ><a href="/dashboard" class="text-link">See the live activity ↗</a>
+      </section>
+    </main>
+    <div class="demo-bar wrap">
+      <span
+        ><span class="live-dot" aria-hidden="true"></span> SHOPPING, STREAMING
+        LIVE</span
+      >
+      <p>Your shopper ID: <strong id="shopper-id">…</strong></p>
+      <a href="/dashboard">Open live analytics ↗</a>
+    </div>
+    <details class="event-details wrap">
+      <summary>
+        Event activity
+        <span>For the curious: follow your clicks through Event Hubs</span>
+      </summary>
+      <div id="event-log" aria-label="Event publishing activity">
+        <p class="muted">Your shopping events will appear here.</p>
+      </div>
+    </details>
+    <footer class="site-footer wrap">
+      <a href="/" data-home class="brand"
+        >ShopStream<span class="brand-period">.</span></a
+      >
+      <p>Everyday, upgraded.</p>
+      <span>CST8916 · Event Hubs shopping demo</span>
+    </footer>
+    <dialog id="cart-dialog" class="cart-drawer" aria-labelledby="cart-title">
+      <div class="drawer-heading">
+        <h2 id="cart-title">Your cart <span id="drawer-count"></span></h2>
+        <button
+          type="button"
+          class="icon-button"
+          data-close="cart-dialog"
+          aria-label="Close cart"
+        >
+          ×
+        </button>
+      </div>
+      <div id="cart-items" class="drawer-items"></div>
+      <div class="drawer-bottom">
+        <div class="summary-line">
+          <span>Subtotal <small>CAD</small></span
+          ><strong id="cart-subtotal"></strong>
+        </div>
+        <p class="muted">Merchandise only. A simple, simulated checkout.</p>
+        <button type="button" class="button primary full" id="go-checkout">
+          Review &amp; check out <span aria-hidden="true">→</span></button
+        ><button
+          type="button"
+          class="text-link keep-shopping"
+          data-close="cart-dialog"
+        >
+          Continue shopping
+        </button>
+      </div>
+    </dialog>
+    <dialog
+      id="product-dialog"
+      class="product-dialog"
+      aria-labelledby="product-dialog-title"
+    >
+      <button
+        type="button"
+        class="icon-button product-close"
+        data-close="product-dialog"
+        aria-label="Close product details"
+      >
+        ×
+      </button>
+      <div id="product-detail"></div>
+    </dialog>
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
+    <noscript
+      ><p class="wrap">
+        Please enable JavaScript to use this shopping demo.
+      </p></noscript
+    >
+  </body>
+</html>
