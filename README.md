@@ -1,6 +1,6 @@
 # ShopStream promotion analytics | CST8916 Assignment 2
 
-**Unlisted demonstration video:** [Insert your verified YouTube URL here before submission.]
+**Unlisted demonstration video:** [Watch the ShopStream demonstration on YouTube](https://youtu.be/8J3-YHPcQgc)
 
 The Week 10 Flask store sends shopping events to Azure Event Hubs. One Stream Analytics job produces per-device traffic counts, store-wide click alerts and a copy of the original stream for the Week 10 shopper dashboard.
 
